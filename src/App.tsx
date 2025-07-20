@@ -2,10 +2,31 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import TechStack from './components/TechStack';
 import CTA from './components/CTA';
+import ContactForm from './components/ContactForm';
+import { getAuth, signInAnonymously } from "firebase/auth";
+import { app } from "./firebase";
+import { useEffect } from 'react';
+import BannerCarousel from './components/BannerCarousel';
+import SiteHeader from './components/SiteHeader';
 
 function App() {
+  const auth = getAuth(app);
+
+  useEffect(() => {
+    signInAnonymously(auth);
+  }, [auth]);
+
   return (
+
+   
+
+
     <div className="bg-slate-900 text-white font-sans antialiased">
+       {/* //make some thing like a big header */}
+      <SiteHeader />
+       
+      <BannerCarousel />
+     
       <div className="relative isolate overflow-hidden">
         {/* Decorative background gradients */}
         <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" aria-hidden="true">
@@ -19,6 +40,7 @@ function App() {
         <main className="container mx-auto px-6 md:px-8">
           <Hero />
           <Services />
+          <ContactForm />
           <TechStack />
           <CTA />
         </main>
