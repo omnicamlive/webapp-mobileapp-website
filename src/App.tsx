@@ -8,6 +8,7 @@ import { app } from "./firebase";
 import { useEffect } from 'react';
 import BannerCarousel from './components/BannerCarousel';
 import SiteHeader from './components/SiteHeader';
+import HubSpotChat from './components/HubSpotChat';
 
 function App() {
   const auth = getAuth(app);
@@ -43,8 +44,17 @@ function App() {
           <ContactForm />
           <TechStack />
           <CTA />
+
+
+
+
+
         </main>
+
+        
       </div>
+
+      <HubSpotChat />
     </div>
   );
 }
