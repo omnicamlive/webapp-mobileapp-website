@@ -2,7 +2,7 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import TechStack from './components/TechStack';
 import CTA from './components/CTA';
-import ContactForm from './components/ContactForm';
+
 import { getAuth, signInAnonymously } from "firebase/auth";
 import { app } from "./firebase";
 import { useEffect } from 'react';

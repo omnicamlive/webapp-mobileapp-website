@@ -1,6 +1,4 @@
-import React, { useState, useEffect, FormEvent } from 'react';
-import { db } from '../firebase';
-import { collection, addDoc } from "firebase/firestore";
+
 import ContactForm from './ContactForm';
 
 // This data could be moved to

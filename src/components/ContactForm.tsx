@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
-import { SectionTitle } from './common';
+
 
 const countryCodes = [
   { code: "+1", label: "🇺🇸 +1" },
