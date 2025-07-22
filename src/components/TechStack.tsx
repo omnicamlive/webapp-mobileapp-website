@@ -1,8 +1,16 @@
 import { SectionTitle } from './common';
 
 const technologies = [
-  'React', 'Next.js', 'TypeScript', 'Node.js', 'Tailwind CSS',
-  'Swift', 'SwiftUI', 'Kotlin', 'Jetpack Compose', 'Firebase', 'Vite'
+  // Frontend & Core
+  'React', 'Next.js', 'TypeScript', 'JavaScript (ES6+)', 'Vue.js', 'Svelte', 'HTML5', 'CSS3',
+  // Styling
+  'Tailwind CSS', 'Sass/SCSS', 'Styled Components',
+  // Mobile
+  'Swift', 'SwiftUI', 'Kotlin', 'Jetpack Compose', 'React Native', 'Flutter',
+  // Backend
+  'Node.js', 'Express.js', 'Python', 'Django', 'Go', 'Rust', 'GraphQL',
+  // Infrastructure & Databases
+  'Firebase', 'PostgreSQL', 'MongoDB', 'Docker', 'AWS', 'Vite', 'Git'
 ];
 
 const TechStack = () => {

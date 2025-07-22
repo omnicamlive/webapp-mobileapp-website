@@ -250,8 +250,10 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="py-16 sm:py-24 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-      <SectionTitle title="Connect With Us" subtitle="Share your WhatsApp & Email" />
+    // <section className="py-16 sm:py-24 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+
+    //   <SectionTitle title="Connect With Us" subtitle="Share your WhatsApp & Email" />
+
       <form
         onSubmit={handleSubmit}
         className="mt-12 max-w-md mx-auto bg-slate-800 p-8 rounded-2xl shadow-lg flex flex-col gap-6 ring-1 ring-slate-700"
@@ -273,7 +275,7 @@ const ContactForm = () => {
             placeholder="WhatsApp Phone Number"
             value={phone}
             onChange={e => setPhone(e.target.value)}
-            className="flex-1 px-4 py-3 bg-slate-900 text-slate-200 rounded-r-full ring-1 ring-slate-700 focus:ring-cyan-500 focus:outline-none transition-all"
+            className="flex-1 min-w-0 px-4 py-3 bg-slate-900 text-slate-200 rounded-r-full ring-1 ring-slate-700 focus:ring-cyan-500 focus:outline-none transition-all"
             required
           />
         </div>
@@ -295,7 +297,7 @@ const ContactForm = () => {
           <div className="text-center text-sm text-cyan-400">{status}</div>
         )}
       </form>
-    </section>
+    // </section>
   );
 };
 

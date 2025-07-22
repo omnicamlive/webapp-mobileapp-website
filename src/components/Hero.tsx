@@ -1,51 +1,58 @@
-import { GoogleGenAI } from '@google/genai';
-import { useState, FormEvent } from 'react';
+import React, { useState, useEffect, FormEvent } from 'react';
+import { db } from '../firebase';
+import { collection, addDoc } from "firebase/firestore";
+import ContactForm from './ContactForm';
 
-// Initialize the GoogleGenAI client with the API key from environment variables.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// This data could be moved to
 
 const Hero = () => {
-  const [prompt, setPrompt] = useState('');
-  const [response, setResponse] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  // const [prompt, setPrompt] = useState('');
+  // const [response, setResponse] = useState('');
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!prompt.trim()) return;
+  // const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   if (!prompt.trim()) return;
 
-    setLoading(true);
-    setError(null);
-    setResponse('');
+  //   setLoading(true);
+  //   setError(null);
+  //   setResponse('');
 
-    try {
-      const result = await ai.models.generateContentStream({
-        model: 'gemini-2.5-flash',
-        contents: `You are a witty branding expert. Given a project idea, generate a short, catchy tagline for it. Be creative and concise. Idea: "${prompt}"`,
-      });
+  //   try {
+  //     const result = await ai.models.generateContentStream({
+  //       model: 'gemini-2.5-flash',
+  //       contents: `You are a witty branding expert. Given a project idea, generate a short, catchy tagline for it. Be creative and concise. Idea: "${prompt}"`,
+  //     });
 
-      for await (const chunk of result) {
-        setResponse((prev) => prev + chunk.text);
-      }
-    } catch (err) {
-      console.error("Error generating content:", err);
-      setError(err instanceof Error ? err.message : "An unexpected error occurred.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  //     for await (const chunk of result) {
+  //       setResponse((prev) => prev + chunk.text);
+  //     }
+  //   } catch (err) {
+  //     console.error("Error generating content:", err);
+  //     setError(err instanceof Error ? err.message : "An unexpected error occurred.");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   return (
     <section className="py-24 sm:py-32 text-center">
-      <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-[size:200%_auto] animate-background-pan">
+      <h1 className="py-2 text-4xl md:text-6xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-[size:200%_auto] animate-background-pan">
         Bring Your Ideas to Life.
       </h1>
       <p className="mt-4 max-w-2xl mx-auto text-lg text-slate-400">
-        We build stunning websites and high-performance mobile apps for iOS & Android.
-        Have an idea? Let our AI generate a tagline for you.
+        We build stunning websites and high-performance mobile apps for iOS & Android. Have an idea?
+        <>
+          <br />
+          <br />
+        </>
+        Share your phone number and email, and we'll get back to you to discuss how we can help.
       </p>
 
-      <form onSubmit={handleSubmit} className="mt-10 max-w-xl mx-auto flex flex-col sm:flex-row gap-3">
+      <ContactForm />
+
+      {/* <form onSubmit={handleSubmit} className="mt-10 max-w-xl mx-auto flex flex-col sm:flex-row gap-3">
         <input
           type="text"
           value={prompt}
@@ -61,9 +68,9 @@ const Hero = () => {
         >
           {loading ? 'Generating...' : 'Generate Tagline'}
         </button>
-      </form>
+      </form> */}
 
-      {(loading || error || response) && (
+      {/* {(loading || error || response) && (
         <div className="mt-8 max-w-xl mx-auto p-6 bg-slate-800/50 rounded-lg ring-1 ring-slate-700">
           {loading && (
              <div className="flex items-center justify-center space-x-2">
@@ -76,7 +83,7 @@ const Hero = () => {
             <p className="text-xl text-cyan-300 animate-fade-in">{response}</p>
           )}
         </div>
-      )}
+      )} */}
     </section>
   );
 };

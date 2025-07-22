@@ -41,7 +41,7 @@ function App() {
         <main className="container mx-auto px-6 md:px-8">
           <Hero />
           <Services />
-          <ContactForm />
+          
           <TechStack />
           <CTA />
 

@@ -7,7 +7,9 @@ const CTA = () => {
         <SectionTitle title="Have a project in mind?" subtitle="Let's create something amazing together." />
         <div className="mt-8">
           <a
-            href="mailto:contact@yourdevstudio.com"
+            href="mailto:omnicamhelp@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block px-8 py-4 font-bold text-white bg-gradient-to-r from-cyan-500 to-fuchsia-500 rounded-lg hover:scale-105 transition-transform duration-200"
           >
             Let's Build Together
