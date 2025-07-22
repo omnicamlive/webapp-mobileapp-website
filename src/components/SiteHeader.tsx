@@ -1,5 +1,5 @@
 
-import logo1 from '../assets/logo1.png';
+import logo1 from '../assets/synergydevlogo1.png';
 
 const SiteHeader = () => (
     <header className="relative bg-gradient-to-r from-blue-800 via-indigo-800 to-purple-800 p-8 text-center shadow-lg overflow-hidden">
